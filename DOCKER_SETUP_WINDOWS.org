@@ -1,0 +1,39 @@
+#+TITLE: Docker Setup Windows
+#+AUTHOR: Peter Polidoro
+#+EMAIL: peterpolidoro@gmail.com
+
+* Repository Information
+  - Author :: Peter Polidoro
+  - License ::
+
+* Install Docker Toolbox
+
+  Docker Toolbox is for older Windows systems. Docker Desktop for Windows is a
+  newer application, however it uses Hyper-V, which does not allow container
+  device access.
+
+** Check Virtualization Enabled
+
+   1. Launch a command prompt or Windows PowerShell window.
+   2. Enter the command given below:
+
+      #+BEGIN_SRC sh
+        systeminfo.exe
+      #+END_SRC
+
+   3. Wait few seconds (It takes a few seconds to gather information about your
+      system but then gives you a result)
+   4. Look under Hyper-V Requirements.
+   5. See that Virtualization Enabled In Firmware reads Yes or that 'A
+      hypervisor has been detected'.
+   6. If Virtualization has not been enabled, restart the computer and enable
+      virtualization in BIOS or UEFI.
+
+** Disable Hyper-V
+
+   1. Open an elevated PowerShell Command Prompt window.
+   2. At the command prompt, run the following command:
+
+      #+BEGIN_SRC sh
+        Disable-WindowsOptionalFeature -Online -FeatureName Microsoft-Hyper-V-Hypervisor
+      #+END_SRC
