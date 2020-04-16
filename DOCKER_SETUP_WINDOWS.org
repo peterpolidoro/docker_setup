@@ -59,13 +59,22 @@
    3. Expand Hyper-V, expand Hyper-V Platform, and then make sure Hyper-V
       Hypervisor check box is cleared.
 
+** Install VirtualBox
+
+   1. Download latest VirtualBox and Extension Pack
+
+      [[https://www.virtualbox.org/wiki/Downloads][VirtualBox Downloads]]
+
+   2. Install VirtualBox with all features.
+   3. Install Extension Pack
+
 ** Install Docker Toolbox
 
    1. To download the latest version of Docker Toolbox, go to
       [[https://github.com/docker/toolbox/releases][Toolbox Releases]] and
       download the latest .exe file.
    2. Install Docker Toolbox by double-clicking the installer.
-   3. Press Next to accept all the defaults and then Install.
+   3. Uncheck VirtualBox and proceed
    4. Uncheck “View Shortcuts in File Explorer” and press Finish.
 
 ** Verify Docker Toolbox Installation
@@ -75,7 +84,7 @@
       terminal.
    3. Type the docker run hello-world command and press RETURN.
 
-** Update VirtualBox
+** Setup VirtualBox Machine
 
    1. Stop the boot2docker vm:
 
@@ -83,29 +92,23 @@
         docker-machine stop default
       #+END_SRC
 
-   2. Download latest VirtualBox and Extension Pack
-      [[https://www.virtualbox.org/wiki/Downloads][VirtualBox Downloads]]
-
-** Enable USB Device Access
-
-   1. Stop the boot2docker vm:
-
-      #+BEGIN_SRC sh
-        docker-machine stop default
-      #+END_SRC
-
-   2. Open VirtualBox manager and add USB filters as required.
-   3. Start the boot2docker vm:
+   2. Open VirtualBox manager and change settings on default
+   3. Increase display virtual memory to 16 MB
+   4. Use VMSVGA graphics controller
+   5. Enable USB 2.0 controller
+   6. Start the boot2docker vm:
 
       #+BEGIN_SRC sh
         docker-machine start default
       #+END_SRC
 
-   4. Since the USB devices are connected to the boot2docker VM, the commands
-      need to be run from that machine. Open up a terminal with the VM and run
-      the Docker run command:
+** Start a Priviledged Docker Container
 
-      #+BEGIN_SRC sh
-        docker-machine ssh
-        docker run -it --privileged -v /dev:/dev ubuntu bash
-      #+END_SRC
+   Since the USB devices are connected to the boot2docker VM, the commands need
+   to be run from that machine. Open up a terminal with the VM and run the
+   Docker run command:
+
+   #+BEGIN_SRC sh
+     docker-machine ssh
+     docker run -it --privileged -v /dev:/dev ubuntu bash
+   #+END_SRC
