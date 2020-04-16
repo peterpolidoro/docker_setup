@@ -75,7 +75,18 @@
       terminal.
    3. Type the docker run hello-world command and press RETURN.
 
-** Enable Hardware Device Access
+** Update VirtualBox
+
+   1. Stop the boot2docker vm:
+
+      #+BEGIN_SRC sh
+        docker-machine stop default
+      #+END_SRC
+
+   2. Download latest VirtualBox and Extension Pack
+      [[https://www.virtualbox.org/wiki/Downloads][VirtualBox Downloads]]
+
+** Enable USB Device Access
 
    1. Stop the boot2docker vm:
 
