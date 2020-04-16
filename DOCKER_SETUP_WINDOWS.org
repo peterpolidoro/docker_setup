@@ -74,3 +74,27 @@
    2. Click the Docker QuickStart icon to launch a pre-configured Docker Toolbox
       terminal.
    3. Type the docker run hello-world command and press RETURN.
+
+** Enable Hardware Device Access
+
+   1. Stop the boot2docker vm:
+
+      #+BEGIN_SRC sh
+        docker-machine stop default
+      #+END_SRC
+
+   2. Open VirtualBox manager and add USB filters as required.
+   3. Start the boot2docker vm:
+
+      #+BEGIN_SRC sh
+        docker-machine start default
+      #+END_SRC
+
+   4. Since the USB devices are connected to the boot2docker VM, the commands
+      need to be run from that machine. Open up a terminal with the VM and run
+      the Docker run command:
+
+      #+BEGIN_SRC sh
+        docker-machine ssh
+        docker run -it --privileged -v /dev:/dev ubuntu bash
+      #+END_SRC
