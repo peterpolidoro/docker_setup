@@ -7,3 +7,15 @@
   - License :: BSD
 
 * Docker Setup
+
+** Linux
+
+   [[https://github.com/janelia-experimental-technology/docker_setup/blob/master/DOCKER_SETUP_LINUX.org]]
+
+** Mac OS X
+
+   [[https://github.com/janelia-experimental-technology/docker_setup/blob/master/DOCKER_SETUP_MAC_OS_X.org]]
+
+** Windows
+
+   [[https://github.com/janelia-experimental-technology/docker_setup/blob/master/DOCKER_SETUP_WINDOWS.org]]
