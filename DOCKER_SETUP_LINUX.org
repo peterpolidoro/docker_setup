@@ -9,13 +9,13 @@
 * Uinstall Old Versions of Docker If Necessary
 
   #+BEGIN_SRC sh
-    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt remove docker docker-engine docker.io containerd runc
   #+END_SRC
 
 * Install Docker
 
   #+BEGIN_SRC sh
-    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt install curl
     curl -fsSL https://get.docker.com -o get-docker.sh
     sudo sh get-docker.sh
     rm get-docker.sh
